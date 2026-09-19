@@ -147,7 +147,7 @@ _Разница между PUT и PATCH:_
     }
 
     // PATCH: api/students/1/group (Частичное обновление - только группа)
-    [Patch("{id:int}/group")]
+    [HttpPatch("{id:int}/group")]
     public IActionResult UpdateGroup([FromRoute] int id, [FromBody] string newGroup)
     {
         var student = Students.FirstOrDefault(s => s.Id == id);
