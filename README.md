@@ -9,9 +9,15 @@
 
 
 ## Карта курса (Лекции и контрольные)
+
+### Часть 1: Web API
 * Лекция 1. Введение в ASP.NET Core
 * [Лекция 2. Основы ASP.NET Core Web API: Основы маршрутизации, CRUD и протокол HTTP](./lectures/02-routing-and-http/README.md)
 * [Лекция 3. Модели и привязка данных, полный CRUD, настройка маршрутизации](./lectures/03-models/README.md)
+* [Контрольная 1. Разработка Web API на ASP.NET Core](./labs/01-web-api/README.md)
+
+### Часть 2: Базы данных, EF Core
+* [Лекция 4. Основы EF Core, async/await, Dependency Injection](./lectures/04-ef-core-intro/README.md)
 
 ## Структура этого репозитория
 ```
