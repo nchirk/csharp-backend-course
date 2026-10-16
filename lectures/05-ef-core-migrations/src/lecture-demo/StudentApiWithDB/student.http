@@ -1,0 +1,41 @@
+@host = http://localhost:5121
+@baseUrl = {{host}}/api/student
+
+### 1. Получить весь список студентов
+GET {{baseUrl}}
+
+### 2. Поиск студентов по подстроке (Query-параметр)
+GET {{baseUrl}}?search=Mike
+
+### 3. Получить конкретного студента по числовому ID (Route-параметр)
+GET {{baseUrl}}/1
+
+### 4. Попытка получить студента с несуществующим ID (Ожидается 404)
+GET {{baseUrl}}/999
+
+### 5. Добавить нового студента (Тело запроса в JSON). СНАЧАЛА СОЗДАЙТЕ ГРУППУ!
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Judy Smith",
+  "groupId": 1
+}
+
+### 6. Полное обновление данных студента (PUT)
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "name": "Mike Updated",
+  "groupId": "1"
+}
+
+### 7. Частичное изменение группы студента (PATCH)
+PATCH {{baseUrl}}/2/group
+Content-Type: application/json
+
+"2"
+
+### 8. Удаление студента по ID (DELETE)
+DELETE {{baseUrl}}/1

@@ -18,6 +18,7 @@
 
 ### Часть 2: Базы данных, EF Core
 * [Лекция 4. Основы EF Core, async/await, Dependency Injection](./lectures/04-ef-core-intro/README.md)
+* [Лекция 5. EF Core — связь 1:N, миграции и конфигурация моделей](./lectures/05-ef-core-migrations/README.md)
 
 ## Структура этого репозитория
 ```
@@ -53,4 +54,4 @@ git sparse-checkout set lectures/03-models
 https://github.com/nchirk/csharp-backend-course/tree/main/lectures/03-models
 ```
 ---
-*Если у вас возникли вопросы по коду или вы нашли опечатку в лекции — пишите в учебный чат группы!*
+*Если у вас возникли вопросы по коду или вы нашли опечатку в лекции — создавайте Issue или пишите в учебный чат группы!*
