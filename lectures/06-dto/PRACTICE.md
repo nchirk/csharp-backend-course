@@ -118,6 +118,7 @@ https://github.com/nchirk/csharp-backend-course/tree/main/lectures/06-dto/src/le
       GroupName = s.Group.Name
   })
   ```
+* Не забывайте добавить `async` в начале методов `StudentService` и писать внутри методов `await` при обращении к БД. Смторите пример в `GroupService`
 * *Подсказка:* Писать `.Include(s => s.Group)` при использовании `Select` **не обязательно** — EF Core сам догадается какие подтянуть таблицы из-за Select.
 
 ---
