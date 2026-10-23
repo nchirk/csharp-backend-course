@@ -19,6 +19,7 @@
 ### Часть 2: Базы данных, EF Core
 * [Лекция 4. Основы EF Core, async/await, Dependency Injection](./lectures/04-ef-core-intro/README.md)
 * [Лекция 5. EF Core — связь 1:N, миграции и конфигурация моделей](./lectures/05-ef-core-migrations/README.md)
+* [Лекция 6. DTO, сервисный слой в Class Library, настройка миграций в Class Library.](./lectures/06-dto/README.md)
 
 ## Структура этого репозитория
 ```
