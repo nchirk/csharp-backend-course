@@ -1,0 +1,30 @@
+@host = http://localhost:5121
+@baseUrl = {{host}}/api/group
+
+### 1. Получить весь список групп
+GET {{baseUrl}}
+
+### 2. Поиск группы по подстроке (Query-параметр)
+GET {{baseUrl}}?search=IP
+
+### 3. Получить конкретную группу по числовому ID (Route-параметр)
+GET {{baseUrl}}/1
+
+### 4. Добавить новую группу (Тело запроса в JSON)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "IP-24"
+}
+
+### 5. Полное обновление данных группы (PUT)
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "name": "IP-25"
+}
+
+### 6. Удаление группы по ID (DELETE)
+DELETE {{baseUrl}}/1
