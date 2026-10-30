@@ -133,11 +133,32 @@ public class GroupController : ControllerBase
         }
     
         return Ok(group);
+    }  
+
+    // 3. POST
+    [HttpPost]  
+    public async Task<IActionResult> Add( [FromBody] GroupCreateDto dto)  
+    {        
+        if (string.IsNullOrWhiteSpace(dto.Name))  
+        {            
+            return BadRequest("Поле Name обязательно.");  
+        }   
+
+        var newGroup = new Group {
+            Name = dto.Name
+        };
+        
+        await context.Groups.AddAsync(newGroup);  
+        await context.SaveChangesAsync();  
+
+        var resultDto = new GroupGetDto { Id = newGroup.Id, Name = newGroup.Name };
+        
+        return CreatedAtAction(nameof(GetById), resultDto);
     }   
 
     // 4. PUT  
     [HttpPut("{id:int}")]  
-    public async Task<IActionResult> Update([FromRoute] int id, [FromBody] GroupCreateDto dto)  
+    public async Task<IActionResult> Update([FromRoute] int id, [FromBody] GroupUpdateDto dto)  
     {        
         if (string.IsNullOrWhiteSpace(dto.Name))  
         {            
