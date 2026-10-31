@@ -34,6 +34,7 @@ https://github.com/nchirk/csharp-backend-course/tree/main/labs/02-ef-core/src/.n
 > 1. Щелкните правой кнопкой мышки по проекту `StudentApi.Data` и выберите пункт `Entity Framework Core -> Add Migration`.
 > 
 > 2. Настройка базовых параметров в окне:
+>    * **Migration Name:** Задайте название миграции, например, `AddStudyProgram`
 >    * **Migrations project:** Укажите проект, в котором находится класс контекста данных (`AppDbContext`) и папка с миграциями — **StudentApi.Data**
 >    * **Startup project:** Выберите исполняемый проект Web Api — **StudentApiWithDB**
 >    * DbContext class: Выберите из выпадающего списка нужный контекст (если их несколько). *AppDbContext*
