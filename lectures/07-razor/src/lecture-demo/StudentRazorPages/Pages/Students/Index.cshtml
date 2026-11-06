@@ -1,0 +1,17 @@
+@page
+@model StudentRazorPages.Pages.Students.Index
+
+@{
+    ViewBag.Title = "Список студентов";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+<p>@Model.TotalCountMessage</p>
+
+<ul>
+    @foreach (var item in Model.Students)
+    {
+        <li>@item</li>
+    }
+</ul>

@@ -1,0 +1,27 @@
+@host = http://localhost:5121
+@baseUrl = {{host}}/api/study-program
+
+### 1. Получить весь список специальностей
+GET {{baseUrl}}
+
+### 2. Поиск специальности по подстроке (Query-параметр)
+GET {{baseUrl}}?search=prog
+
+### 3. Получить конкретную специальность по числовому ID (Route-параметр)
+GET {{baseUrl}}/1
+
+### 4. Добавить новую специальность (Тело запроса в JSON)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Programming"
+}
+
+### 5. Обновить специальность (PUT)
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "name": "Web Programming"
+}

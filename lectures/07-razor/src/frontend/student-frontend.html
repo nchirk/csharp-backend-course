@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student API Client</title>
+    <!-- Подключаем Bootstrap для красоты -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container my-5" style="max-width: 800px;">
+        <h1 class="mb-4 text-center">Управление студентами (Клиент + Web API)</h1>
+
+        <!-- ФОРМА ДОБАВЛЕНИЯ СТУДЕНТА -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">Добавить нового студента</h5>
+            </div>
+            <div class="card-body">
+                <form id="studentForm">
+                    <div class="row g-3">
+                        <div class="col-md-5">
+                            <input type="text" id="firstName" class="form-control" placeholder="Имя" required>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" id="lastName" class="form-control" placeholder="Фамилия" required>
+                        </div>
+                        <div class="col-md-2">
+                            <!-- Для простоты передаем ID группы вручную -->
+                            <input type="number" id="groupId" class="form-control" placeholder="ID группы" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success mt-3 w-100">Сохранить в БД через API</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ТАБЛИЦА СТУДЕНТОВ -->
+        <div class="card shadow-sm">
+            <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">Список студентов</h5>
+                <button id="refreshBtn" class="btn btn-sm btn-light">Обновить</button>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Имя</th>
+                            <th>Фамилия</th>
+                            <th>ID Группы</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsTableBody">
+                        <tr>
+                            <td colspan="4" class="text-center text-muted py-3">Загрузка данных...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- СКРИПТ ПОДКЛЮЧЕНИЯ К API -->
+    <script>
+        // НАСТРОЙКА: Укажите здесь URL вашего запущенного Web API проекта
+        const API_URL = 'http://localhost:5121/api/students'; 
+
+        // 1. Функция получения списка студентов (GET)
+        async function fetchStudents() {
+            const tbody = document.getElementById('studentsTableBody');
+            
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error('Ошибка сервера');
+                
+                const students = await response.json(); // Получаем JSON от API
+                
+                tbody.innerHTML = ''; // Очищаем таблицу
+
+                if (students.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="4" class="text-center py-3">Студентов пока нет</td></tr>`;
+                    return;
+                }
+
+                // Рендерим строки таблицы
+                students.forEach(student => {
+                    const row = `
+                        <tr>
+                            <td>${student.id}</td>
+                            <td>${student.firstName}</td>
+                            <td>${student.lastName}</td>
+                            <td><span class="badge bg-info text-dark">Группа №${student.groupId}</span></td>
+                        </tr>
+                    `;
+                    tbody.innerHTML += row;
+                });
+
+            } catch (error) {
+                console.error(error);
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center text-danger py-3">Не удалось подключиться к API. Проверьте CORS и URL!</td></tr>`;
+            }
+        }
+
+        // 2. Функция отправки данных (POST)
+        document.getElementById('studentForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Отменяем стандартную перезагрузку страницы
+
+            // Собираем данные из инпутов в объект (соответствующий вашему StudentDto)
+            const studentData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                groupId: parseInt(document.getElementById('groupId').value)
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json' // Говорим API, что отправляем JSON
+                    },
+                    body: JSON.stringify(studentData) // Превращаем JS-объект в строку JSON
+                });
+
+                if (response.ok) {
+                    // Если API успешно сохранил, очищаем форму и обновляем список
+                    document.getElementById('studentForm').reset();
+                    fetchStudents(); 
+                } else {
+                    alert('API вернул ошибку при сохранении!');
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Ошибка сети при отправке запроса к API');
+            }
+        });
+
+        // Слушатели событий
+        document.getElementById('refreshBtn').addEventListener('click', fetchStudents);
+
+        // Запускаем первичную загрузку при открытии страницы
+        fetchStudents();
+    </script>
+</body>
+</html>
