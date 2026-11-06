@@ -10,7 +10,7 @@
 
 ## Карта курса (Лекции и контрольные)
 
-### Часть 1: Web API
+### Часть 1: Web API (backend)
 * Лекция 1. Введение в ASP.NET Core
 * [Лекция 2. Основы ASP.NET Core Web API: Основы маршрутизации, CRUD и протокол HTTP](./lectures/02-routing-and-http/README.md)
 * [Лекция 3. Модели и привязка данных, полный CRUD, настройка маршрутизации](./lectures/03-models/README.md)
@@ -21,6 +21,9 @@
 * [Лекция 5. EF Core — связь 1:N, миграции и конфигурация моделей](./lectures/05-ef-core-migrations/README.md)
 * [Лекция 6. DTO, сервисный слой в Class Library, настройка миграций в Class Library.](./lectures/06-dto/README.md)
 * [Контрольная 2. Расширение БД и сервисного слоя](./labs/02-ef-core/README.md)
+
+### Часть 3: Клиентская часть (frontend)
+* [Лекция 7. Фронтенд как отдельное приложение, MVC, Razor Pages.](./lectures/07-dto/README.md)
 
 ## Структура этого репозитория
 ```
