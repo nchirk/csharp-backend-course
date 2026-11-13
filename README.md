@@ -24,6 +24,7 @@
 
 ### Часть 3: Клиентская часть (frontend)
 * [Лекция 7. Фронтенд как отдельное приложение, MVC, Razor Pages.](./lectures/07-razor/README.md)
+* [Лекция 8. CRUD на Razor Pages.](./lectures/08-razor-pages/README.md)
 
 ## Структура этого репозитория
 ```

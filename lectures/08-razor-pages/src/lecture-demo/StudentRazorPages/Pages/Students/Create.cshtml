@@ -1,0 +1,25 @@
+@page
+@model StudentRazorPages.Pages.Students.Create
+
+@{
+    ViewData["Title"] = "Добавить нового студента";
+}
+
+<h2>Добавить нового студента</h2>
+
+<form method="post">
+    <div>
+        <label asp-for="Input.Name">Имя студента</label><br />
+        <input asp-for="Input.Name" />
+    </div>
+
+    <div>
+        <label asp-for="Input.Age">Возраст</label><br />
+        <input asp-for="Input.Age" type="number" />
+    </div>
+
+    <p>
+        <button type="submit" class="btn btn-success">Создать</button>
+        <a asp-page="./Index" class="btn btn-secondary">Отмена</a>
+    </p>
+</form>

@@ -1,0 +1,26 @@
+@page "{id:int}"
+@model StudentRazorPages.Pages.Students.Update
+@{
+    ViewData["Title"] = "Редактирование студента";
+}
+
+<h2>Редактировать студента</h2>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div>
+        <label asp-for="Input.Name">Имя студента</label><br />
+        <input asp-for="Input.Name" />
+    </div>
+
+    <div>
+        <label asp-for="Input.Age">Возраст</label><br />
+        <input asp-for="Input.Age" type="number" />
+    </div>
+
+    <p>
+        <button type="submit" class="btn btn-warning">Сохранить</button>
+        <a asp-page="./Index" class="btn btn-secondary">Отмена</a>
+    </p>
+</form>

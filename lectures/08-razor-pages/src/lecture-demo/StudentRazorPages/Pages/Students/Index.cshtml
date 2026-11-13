@@ -1,0 +1,36 @@
+@page
+@model StudentRazorPages.Pages.Students.Index
+@{
+    ViewData["Title"] = "Список студентов";
+}
+
+<h2>Список студентов</h2>
+
+<p>
+    <a asp-page="./Create" class="btn btn-primary">+ Добавить студента</a>
+</p>
+
+<form method="get">
+    <input asp-for="SearchTerm" placeholder="Поиск по имени..." />
+    <button type="submit" class="btn btn-secondary">Найти</button>
+    <a asp-page="./Index">Сбросить</a>
+</form>
+
+<p>@Model.TotalCountMessage</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Возраст</th>
+        <th>Действия</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var student in Model.Students)
+    {
+        <partial name="_StudentRow" model="student"/>
+    }
+    </tbody>
+</table>

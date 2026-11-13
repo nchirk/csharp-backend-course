@@ -1,0 +1,18 @@
+@page "{id:int}"
+@model StudentRazorPages.Pages.Students.Details
+@{
+    ViewData["Title"] = "Карточка студента";
+}
+
+<h2>Информация о студенте</h2>
+
+<div>
+    <p><strong>ID:</strong> @Model.Student.Id</p>
+    <p><strong>Имя:</strong> @Model.Student.Name</p>
+    <p><strong>Возраст:</strong> @Model.Student.Age лет</p>
+</div>
+
+<p>
+    <a asp-page="./Update" asp-route-id="@Model.Student.Id" class="btn btn-warning">Редактировать</a>
+    <a asp-page="./Index" class="btn btn-secondary">Назад к списку</a>
+</p>
