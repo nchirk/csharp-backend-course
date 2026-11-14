@@ -6,7 +6,7 @@
 
 Доработать проект `StudentApiWithDB` из лекции, закрепить навыки работы с **Entity Framework Core**: создания сущностей, настройки связей между моделями, реализации CRUD-операций и применения миграций к базе данных.
 
-## 0. Возьмите за основу код лекции
+## Возьмите за основу код лекции
 Перейдите на сайт https://download-directory.github.io/. Вставьте в поле ввода ссылку на код с лекции:
 ```
 https://github.com/nchirk/csharp-backend-course/tree/main/lectures/05-ef-core-migrations/src/lecture-demo
@@ -14,22 +14,9 @@ https://github.com/nchirk/csharp-backend-course/tree/main/lectures/05-ef-core-mi
 
 Разархивируйте приложение. Если не запускается, обновите на .NET 10.
 
-### Как обновить с .NET 9 на .NET 10 в Rider
+[Как обновить с .NET 9 на .NET 10 в Rider](/info/upgrade-dotnet.md)
 
-1. Установите **.NET 10 SDK** с [официального сайта](https://dotnet.microsoft.com/download/dotnet/10.0) и перезапустите Rider.
-2. В окне **Solution** нажмите правой кнопкой мыши на проект и выберите `Properties`.
-3. В разделе `Application` → `General` найдите **Target framework** и выберите `.NET 10.0`.
-4. Сохраните изменения, дождитесь восстановления NuGet-пакетов и выполните `Build → Build Solution`.
-5. Если `Target framework` недоступен в свойствах, откройте файл `.csproj` и измените `net9.0` на `net10.0` вручную.
-
-**Проверьте:** проект успешно собирается и запускается. Если используется EF Core 9, проверьте совместимость пакетов с .NET 10 и при необходимости обновите их до EF Core 10.
-
-### Если пакеты NuGet не обновились сами:
-
-1. В окне **Solution** нажмите правой кнопкой мыши на проект и выберите `Manage NuGet Packages`.
-2. Откройте вкладку **Updates**, выберите нужные пакеты и нажмите **Update**.
-3. Если переходите на .NET 10, обновите пакеты `Microsoft.EntityFrameworkCore`, `Microsoft.EntityFrameworkCore.Sqlite` и `Microsoft.EntityFrameworkCore.Design` до совместимой версии **10.0.x**.
-4. Дождитесь завершения обновления и выполните `Build → Build Solution`.
+Если не получилось собрать проект, позовите преподавателя.
 
 ## Задание 1. Добавить направление обучения `StudyProgram`
 

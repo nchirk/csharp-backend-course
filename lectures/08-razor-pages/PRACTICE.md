@@ -7,36 +7,34 @@
 **Цель работы:** научиться создавать CRUD на Razor Pages для сущности группа. 
 
 ## Возьмите за основу код лекции
-Перейдите на сайт https://download-directory.github.io/. Вставьте в поле ввода ссылку на код с лекции:
+Перейдите на сайт https://download-directory.github.io/.
+
+1. Для первого задания вставьте в поле ввода ссылку на код предыдущей лекции:
+
+```
+https://github.com/nchirk/csharp-backend-course/tree/main/lectures/07-razor/src/lecture-demo
+```
+
+2. Для второго задания вставьте в поле ввода ссылку на код текущей лекции:
 ```
 https://github.com/nchirk/csharp-backend-course/tree/main/lectures/08-razor-pages/src/lecture-demo
 ```
 
 Разархивируйте приложение. Если не запускается, обновите на .NET 10.
 
-<details>
-<summary><b>Как обновить с .NET 9 на .NET 10 в Rider</b></summary>
-
-> ### Как обновить с .NET 9 на .NET 10 в Rider
->
->1. В окне **Solution** нажмите правой кнопкой мыши на проект и выберите `Properties`.
->2. В разделе `Application` → `General` найдите **Target framework** и выберите `.NET 10.0`.
->3. Сохраните изменения, дождитесь восстановления NuGet-пакетов и выполните `Build → Build Solution`.
->4. Если `Target framework` недоступен в свойствах, откройте файл `.csproj` и измените `net9.0` на `net10.0` вручную.
->
->**Проверьте:** проект успешно собирается и запускается. Если используется EF Core 9, проверьте совместимость пакетов с .NET 10 и при необходимости обновите их до EF Core 10.
->
->### Если пакеты NuGet не обновились сами:
->
->1. В окне **Solution** нажмите правой кнопкой мыши на проект и выберите `Manage NuGet Packages`.
->2. Откройте вкладку **Updates**, выберите нужные пакеты и нажмите **Update**.
->3. Если переходите на .NET 10, обновите пакеты `Microsoft.EntityFrameworkCore`, `Microsoft.EntityFrameworkCore.Sqlite` и `Microsoft.EntityFrameworkCore.Design` до совместимой версии **10.0.x**.
->4. Дождитесь завершения обновления и выполните `Build → Build Solution`.
-</details>
+[Как обновить с .NET 9 на .NET 10 в Rider](/info/upgrade-dotnet.md)
 
 Если не получилось собрать проект, позовите преподавателя.
 
 ## Задание
+
+Сделайте одно из двух заданий на выбор.
+
+### Задание 1
+
+Возьмите код предыдцщей лекции и попробуйте повторить создание сущности Student ориентируясь на [текст лекции](./README.md).
+
+### Задание 2
 Используя `IGroupService`, создайте в папке `Pages/Groups` полный набор страниц по аналогии со студентами:
 
 1. `Pages/Groups/Index.cshtml` — таблица со списком всех групп (ID, Название), поиск по названию и кнопка удаления через `OnPostDeleteAsync`.
