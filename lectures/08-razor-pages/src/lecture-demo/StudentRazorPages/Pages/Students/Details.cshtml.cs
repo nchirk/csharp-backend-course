@@ -18,7 +18,7 @@ public class Details : PageModel
 
     public async Task<IActionResult> OnGetAsync(int id)
     {
-        var student = await _studentService.GetByIdAsync(1);
+        var student = await _studentService.GetByIdAsync(id);
         if (student is null)
         {
             return NotFound();
