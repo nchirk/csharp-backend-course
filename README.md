@@ -3,7 +3,7 @@
 
 ## Системные требования и софт
 Для прохождения курса вам понадобятся:
-* **SDK:** [.NET 8.0, .NET 9.0 или .NET 10.0](https://microsoft.com)
+* **SDK:** [.NET 9.0 или .NET 10.0](https://microsoft.com)
 * **IDE:** [JetBrains Rider](https://jetbrains.com) (рекомендуется) или Visual Studio.
 * **Git:** [Скачать Git](https://git-scm.com)
 
@@ -25,6 +25,7 @@
 ### Часть 3: Клиентская часть (frontend)
 * [Лекция 7. Фронтенд как отдельное приложение, MVC, Razor Pages.](./lectures/07-razor/README.md)
 * [Лекция 8. CRUD на Razor Pages.](./lectures/08-razor-pages/README.md)
+* [Лекция 9. Razor Pages: вывод связанных сущностей, валидация, bootstrap.](./lectures/09-validation/README.md)
 
 ## Структура этого репозитория
 ```
