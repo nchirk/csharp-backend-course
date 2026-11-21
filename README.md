@@ -26,6 +26,7 @@
 * [Лекция 7. Фронтенд как отдельное приложение, MVC, Razor Pages.](./lectures/07-razor/README.md)
 * [Лекция 8. CRUD на Razor Pages.](./lectures/08-razor-pages/README.md)
 * [Лекция 9. Razor Pages: вывод связанных сущностей, валидация, bootstrap.](./lectures/09-validation/README.md)
+* [Контрольная 3. Разработка CRUD-приложения на ASP.NET Core Razor Pages](./labs/03-razor-pages/README.md)
 
 ## Структура этого репозитория
 ```
