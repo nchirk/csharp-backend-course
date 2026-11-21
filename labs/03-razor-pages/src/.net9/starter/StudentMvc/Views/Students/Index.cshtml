@@ -1,0 +1,16 @@
+@model StudentMvc.Models.Students.StudentListViewModel
+
+@{
+    ViewBag.Title = "Список студентов";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+<p>@Model.TotalCountMessage</p>
+
+<ul>
+    @foreach (var item in Model.Students)
+    {
+        <li>@item.DisplayName</li>
+    }
+</ul>

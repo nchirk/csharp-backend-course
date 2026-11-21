@@ -1,0 +1,48 @@
+@page
+@model StudentRazorPages.Pages.Students.Create
+
+@{
+    ViewData["Title"] = "Добавить нового студента";
+}
+
+<h2 class="mb-3">Добавить нового студента</h2>
+
+<div class="row">
+    <div class="col-md-5">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Input.Name" class="form-label">Имя студента</label>
+                <input asp-for="Input.Name" class="form-control" />
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Input.Age" class="form-label">Возраст</label><br/>
+                <input asp-for="Input.Age" type="number" class="form-control"/>
+                <!-- Сообщение об ошибке для поля Age -->
+                <span asp-validation-for="Input.Age" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.GroupId" class="form-label">Группа</label>
+                <select asp-for="Input.GroupId" asp-items="Model.GroupList" class="form-select">
+                    <option value="">-- Выберите группу --</option>
+                </select>
+                <span asp-validation-for="Input.GroupId" class="text-danger"></span>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-success">Создать</button>
+                <a asp-page="./Index" class="btn btn-secondary">Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Подключаем клиентскую валидацию -->
+@section Scripts
+{
+    <partial name="Shared/_ValidationScriptsPartial"/>
+}

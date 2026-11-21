@@ -1,0 +1,16 @@
+@model StudentApi.Data.DTOs.Student.StudentGetDto
+
+<tr>
+    <td>@Model.Id</td>
+    <td>@Model.Name</td>
+    <td>@Model.Age</td>
+    <td>@Model.GroupName</td>
+    <td class="text-end">
+        <a asp-page="./Details" asp-route-id="@Model.Id" class="btn btn-sm btn-info">Просмотреть</a>
+        <a asp-page="./Update" asp-route-id="@Model.Id" class="btn btn-sm btn-warning">Обновить</a>
+        <form method="post" asp-page-handler="Delete" asp-route-id="@Model.Id" class="d-inline"
+              onsubmit="return confirm('Удалить студента @Model.Name?');">
+            <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+        </form>
+    </td>
+</tr>

@@ -1,0 +1,50 @@
+@page
+@model StudentRazorPages.Pages.Students.Index
+@{
+    ViewData["Title"] = "Список студентов";
+}
+
+<div class="d-flex justify-content-between align-items-center">
+    <h2>Список студентов</h2>
+    <a asp-page="./Create" class="btn btn-primary">+ Добавить студента</a>
+</div>
+
+@if (!string.IsNullOrEmpty(Model.DeleteErrorMessage))
+{
+    <p class="alert alert-danger">@Model.DeleteErrorMessage</p>
+}
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-auto">
+        <input asp-for="SearchTerm" class="form-control" placeholder="Поиск по имени..." />
+        <span asp-validation-for="SearchTerm" class="text-danger"></span>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-secondary">Найти</button>
+        <a asp-page="./Index" class="btn btn-outline-secondary">Сбросить</a>
+    </div>
+</form>
+
+<p class="text-muted">@Model.TotalCountMessage</p>
+
+<table class="table table-striped table-hover align-middle">
+    <thead class="table-dark">
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Возраст</th>
+        <th>Группа</th>
+        <th class="text-end">Действия</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var student in Model.Students)
+    {
+        <partial name="_StudentRow" model="student" />
+    }
+    </tbody>
+</table>
+
+@section Scripts{
+    <partial name="Shared/_ValidationScriptsPartial"/>
+}
